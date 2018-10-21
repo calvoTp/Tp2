@@ -9,6 +9,7 @@
 #define COORDENADA_H_
 
 #include <iostream>
+#include <juego.hpp>
 using namespace std;
 
 class Coordenada {

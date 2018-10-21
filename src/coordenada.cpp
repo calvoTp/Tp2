@@ -8,9 +8,6 @@
 #include "coordenada.h"
 
 
-#define FILAS_DEL_TABLERO 2
-#define COLUMNAS_DEL_TABLERO 4
-
 Coordenada::Coordenada(int fila, int columna) {
 	this->fila = fila;
 	this->columna = columna;
