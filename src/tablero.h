@@ -17,6 +17,7 @@ class Tablero {
 
 private:
 	char** tablero;
+	string nombre;
 	int filas, columnas;
 
 public:
