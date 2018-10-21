@@ -1,44 +1,25 @@
 /*
-* juego.cpp
-*
-*  Created on: Sep 1, 2018
-*      Author: marcos
-*/
+ * juegoDeLaVida.cpp
+ *
+ *  Created on: Oct 21, 2018
+ *      Author: marcos
+ */
 
-#include "juego.hpp"
-#include "coordenada.hpp"
-#include "inicializarJuego.hpp"
-#include "actualizarJuego.hpp"
-#include "decidirJuego.hpp"
-#include "mostrarJuego.hpp"
-
+#include "coordenada.h"
+#include "tablero.h"
+#include <iostream>
 using namespace std;
-
 
 int main() {
 
-  Juego juegoDeLaVida;
-  char tableroActualizado[FILAS_DEL_TABLERO][COLUMNAS_DEL_TABLERO];
-  char decisionAvanzarTurno;
+	Coordenada prueba(1,2);
+	Tablero tablero1(10,10);
+	Tablero tablero2(50,50);
+
+	tablero2.mostrarTablero();
 
 
-  do {
-    decisionAvanzarTurno = CONTINUAR;
-    inicializarJuego(&juegoDeLaVida);
-    mostrarJuego(juegoDeLaVida);
-    consultarAvanceDeTurno(&decisionAvanzarTurno);
-    actualizarEstadoDeJuego(&juegoDeLaVida.estado, decisionAvanzarTurno);
-
-    while (juegoDeLaVida.estado == EN_EJECUCION) {
-      actualizarJuego(&juegoDeLaVida, tableroActualizado);
-      mostrarJuego(juegoDeLaVida);
-      consultarAvanceDeTurno(&decisionAvanzarTurno);
-      actualizarEstadoDeJuego(&juegoDeLaVida.estado, decisionAvanzarTurno);
-    }
-  } while(juegoDeLaVida.estado == REINICIO);
-
-
-  cout << endl << "Gracias por haber jugado! :-)";
-
-  return 0;
+	return 0;
 }
+
+
