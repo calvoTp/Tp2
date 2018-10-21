@@ -9,6 +9,7 @@
 
 Archivo::Archivo(string direccionDelArchivo) {
 	direccion = direccionDelArchivo;
+	totalTableros = 0;
 }
 
 void Archivo::leerTableros() {
@@ -17,6 +18,7 @@ void Archivo::leerTableros() {
 	int columnas;
 
 	while (queLeo == "Tablero" && !archivo.eof()) {
+		totalTableros++;
 		archivo >> nombreTablero;
 		archivo >> filas;
 		archivo >> columnas;
@@ -69,3 +71,6 @@ void Archivo::leerDatosDelArchivo() {
 
 }
 
+unsigned int Archivo::cantidadDeTableros(){
+	return totalTableros;
+}

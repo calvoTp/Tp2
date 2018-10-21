@@ -1,4 +1,5 @@
 Tablero primertablero 4 3
+Tablero segundotablero 10 10
 Portal primertablero 3 1 activo
 Parcela primertablero 1 1 255 255 255 0.3 0.8
 Parcela primertablero 1 2 211 123 002 0.4 0.2

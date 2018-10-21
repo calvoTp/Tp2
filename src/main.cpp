@@ -6,18 +6,18 @@
  */
 
 #include <iostream>
+#include "Juego.h"
 #include "tablero.h"
 #include "Archivo.h"
 using namespace std;
 
 int main() {
 
-	Archivo archivo("datos/archivo");
-	Tablero tablero(50,50);
+	Juego juegoDeLaVida("datos/archivo");
 
-	tablero.mostrarTablero();
+	Tablero tablero(5,5);
 
-	archivo.leerDatosDelArchivo();
+	juegoDeLaVida.mostrarTablero();
 
 
 	return 0;

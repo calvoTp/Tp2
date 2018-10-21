@@ -18,6 +18,8 @@ private:
 	ifstream archivo;
 	string direccion;
 	string queLeo;
+	unsigned int totalTableros;
+
 
 	void leerTableros();
 	void leerPortales();
@@ -27,6 +29,8 @@ public:
 	Archivo(string);
 
 	void leerDatosDelArchivo();
+
+	unsigned int cantidadDeTableros();
 };
 
 #endif /* SRC_ARCHIVO_H_ */
