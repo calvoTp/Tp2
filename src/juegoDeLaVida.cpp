@@ -16,7 +16,7 @@ using namespace std;
 
 
 int main() {
-	//marcos es alto gil
+
 
   Juego juegoDeLaVida;
   char tableroActualizado[FILAS_DEL_TABLERO][COLUMNAS_DEL_TABLERO];

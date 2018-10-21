@@ -5,6 +5,8 @@
  *      Author: marcos
  */
 
+//yyyyy
+
 #ifndef DECIDIRJUEGO_HPP_
 #define DECIDIRJUEGO_HPP_
 
