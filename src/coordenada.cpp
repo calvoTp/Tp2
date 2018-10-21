@@ -8,6 +8,7 @@
 #include "coordenada.hpp"
 using namespace std;
 
+//prueba branch lucas
 
 bool validarCoordenada(Coordenada coordenada, int filaASumar, int columnaASumar) {
   bool valorRetorno = false;
