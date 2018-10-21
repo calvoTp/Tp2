@@ -16,16 +16,18 @@ using namespace std;
 class Tablero {
 
 private:
-	char tablero[FILAS_DEL_TABLERO][COLUMNAS_DEL_TABLERO];
-	char tableroActualizado[FILAS_DEL_TABLERO][COLUMNAS_DEL_TABLERO];
+	char** tablero;
 	int filas, columnas;
 
 public:
 	//inicializa el valor de todas las celulas como muertas
 	Tablero(int, int);
 
-	void actualizarTablero(int, int);
+	//void actualizarTablero(int, int);
 
 	void mostrarTablero();
+
+	~Tablero();
 };
+
 #endif /* TABLERO_H_ */
