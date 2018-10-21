@@ -9,6 +9,7 @@
 using namespace std;
 
 
+
 void actualizarTablero(Tablero tablero, Tablero tableroActualizado, int fila, int columna) {
   tablero[fila][columna] = tableroActualizado[fila][columna];
   return;
