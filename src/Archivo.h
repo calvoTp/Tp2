@@ -9,16 +9,24 @@
 #define SRC_ARCHIVO_H_
 
 #include <fstream>
+#include <iostream>
 using namespace std;
 
 class Archivo {
 
 private:
 	ifstream archivo;
+	string direccion;
+	string queLeo;
+
+	void leerTableros();
+	void leerPortales();
+	void leerParcelas();
 
 public:
-	Archivo();
-	virtual ~Archivo();
+	Archivo(string);
+
+	void leerDatosDelArchivo();
 };
 
 #endif /* SRC_ARCHIVO_H_ */
