@@ -3,7 +3,6 @@
 *
 *  Created on: Sep 1, 2018
 *      Author: marcos
-*      holaxdd
 */
 
 #include "juego.hpp"
