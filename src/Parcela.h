@@ -11,11 +11,18 @@
 
 class Parcela {
 private:
+int tasaDeNatalidad;
+int tasaDeMortalidad;
+bool iniciada;
 RGBApixel color;
+
+
 
 public:
 	Parcela();
-	void setear(RGBApixel &colorInicial);
+	int obtenerTasaMortalidad();
+	int ObtenerTasaNatalidad();
+	void setear(RGBApixel colorAsignar,int ,int );
 	RGBApixel obtenerColor();
 	virtual ~Parcela();
 };
