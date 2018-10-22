@@ -24,6 +24,7 @@ public:
 	int ObtenerTasaNatalidad();
 	void setear(RGBApixel colorAsignar,int ,int );
 	RGBApixel obtenerColor();
+	bool estaViva();
 	virtual ~Parcela();
 };
 

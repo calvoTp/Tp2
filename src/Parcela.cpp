@@ -23,7 +23,11 @@ void Parcela::setear(RGBApixel colorAsignar,int tasaNat,int tasaMor){
 	color.Green=colorAsignar.Green;
 	color.Blue=colorAsignar.Blue;
 	color.Red=colorAsignar.Red;
-	iniciada=true;
 	tasaDeNatalidad=tasaNat;
 	tasaDeMortalidad=tasaMor;
+	iniciada=false;
+}
+
+bool Parcela::estaViva(){
+	return iniciada;
 }

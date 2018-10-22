@@ -15,6 +15,7 @@ RGBApixel color;
     int numeroDeFilas=9;
     int numeroDeColumnas=9;
     Parcela* nueva=new Parcela[numeroDeFilas*numeroDeColumnas];
+
     Imagen bitmap(nueva,numeroDeFilas,numeroDeColumnas);
     for(int i=0;i<numeroDeFilas*numeroDeColumnas;i++){
     	nueva[i].setear(color,6,6);

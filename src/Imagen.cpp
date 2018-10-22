@@ -22,24 +22,41 @@ Imagen::Imagen(Parcela* parcela,int filas,int columnas) {
 void Imagen::actualizar(){
 	int columnaActual=0;
 	int filaActual=0;
-    int columna=0;
-    int parcela=0;
-    do{
-    	for(int i=columnaActual;i<(columnaActual+20);i++){
-    		for(int j=filaActual;j<(filaActual+20);j++){
-    			mapa.SetPixel(i,j,celulas[parcela].obtenerColor());
-    		}
-    	}
-    	columna++;
-    	columnaActual+=20;
-    	parcela++;
-    	if(columna==totalColumnas){
-    		filaActual+=PIXEL;
-    		columnaActual=0;
-    		columna=0;
-    	}
-    }while(parcela<totalFilas*totalColumnas);
+	int columna=0;
+	RGBApixel predeterminado;
+	predeterminado.Green=0;
+	predeterminado.Blue=0;
+	predeterminado.Red=0;
+
+
+	for(int i=0;i<totalColumnas;i++){
+		for(int j=0;j<totalFilas;j++){
+			if(celulas[i*j].estaViva()){
+				for(int x=columnaActual;x<(columnaActual+20);x++){
+					for(int y=filaActual;y<(filaActual+20);y++){
+						mapa.SetPixel(x,y,celulas[i*j].obtenerColor());
+					}
+				}
+			}
+			else{
+				for(int x=columnaActual;x<(columnaActual+20);x++){
+					for(int y=filaActual;y<(filaActual+20);y++){
+						mapa.SetPixel(x,y,predeterminado);
+					}
+				}
+			}
+			columna++;
+			columnaActual+=20;
+			if(columna==totalColumnas){
+				filaActual+=PIXEL;
+				columnaActual=0;
+				columna=0;
+			}
+		}
+	}
 }
+
+
 
 void Imagen::imprimir(const char nombre[]){
 	mapa.WriteToFile(nombre);
