@@ -9,20 +9,43 @@
 
 Archivo::Archivo(string direccionDelArchivo) {
 	direccion = direccionDelArchivo;
-	totalTableros = 0;
+
+	archivo.open(direccion.c_str());
+	leerDatosDelArchivo();
+	archivo.clear(); //sin esto falla todo, tiene que ver con el eof
+	archivo.seekg(0, ios::beg); //vuelvo al principio del archivo
+
+	nombresTableros = new string[totalTableros];
+	filasTableros = new int[totalTableros];
+	columnasTableros = new int[totalTableros];
+
+	existeArray = true;
+	leerDatosDelArchivo();
+
+	archivo.close();
 }
 
 void Archivo::leerTableros() {
 	string nombreTablero;
 	int filas;
 	int columnas;
+	int i = 0;
+	totalTableros = 0;
 
 	while (queLeo == "Tablero" && !archivo.eof()) {
+
 		totalTableros++;
 		archivo >> nombreTablero;
 		archivo >> filas;
 		archivo >> columnas;
 		archivo >> queLeo;
+
+		if (existeArray) {
+			nombresTableros[i] = nombreTablero;
+			filasTableros[i] = filas;
+			columnasTableros[i] = columnas;
+			i++;
+		}
 	}
 }
 
@@ -62,15 +85,30 @@ void Archivo::leerParcelas() {
 }
 
 void Archivo::leerDatosDelArchivo() {
-		archivo.open(direccion.c_str());
 		archivo >> queLeo;
 		leerTableros();
 		leerPortales();
 		leerParcelas();
-		archivo.close();
-
 }
 
 unsigned int Archivo::cantidadDeTableros(){
 	return totalTableros;
+}
+
+string Archivo::nombreDelTablero(int posicion) {
+	return nombresTableros[posicion];
+}
+
+unsigned int Archivo::filasDelTablero(int posicion) {
+	return filasTableros[posicion];
+}
+
+unsigned int Archivo::columnasDelTablero(int posicion) {
+	return columnasTableros[posicion];
+}
+
+Archivo::~Archivo() {
+	delete[]nombresTableros;
+	delete[]filasTableros;
+	delete[]columnasTableros;
 }

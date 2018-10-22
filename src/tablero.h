@@ -22,9 +22,11 @@ private:
 
 public:
 	//inicializa el valor de todas las celulas como muertas
-	Tablero(int filas = 3, int columnas = 3);
+	Tablero();
 
 	//void actualizarTablero(int, int);
+
+	void inicializarTablero(string, int, int);
 
 	void mostrarTablero();
 

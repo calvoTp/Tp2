@@ -8,6 +8,10 @@
 #include "Juego.h"
 
 Juego::Juego(string direccionDelArchivo) {
+
+	Archivo archivo(direccionDelArchivo);
+
+	cantidadDeTableros = archivo.cantidadDeTableros();
 	estado = EN_EJECUCION;
 	celulasVivas = 0;
 	celulasNacidasUltimoTurno = 0;
@@ -19,14 +23,15 @@ Juego::Juego(string direccionDelArchivo) {
 	turnosJugados = 0;
 	turnosCongelados = 0;
 
-	Archivo archivo(direccionDelArchivo);
-	archivo.leerDatosDelArchivo();
+	tablero = new Tablero[cantidadDeTableros];
 
-	tablero = new Tablero[archivo.cantidadDeTableros()];
+	for (unsigned int i = 0; i < cantidadDeTableros; i++) {
+		tablero[i].inicializarTablero(archivo.nombreDelTablero(i), archivo.filasDelTablero(i), archivo.columnasDelTablero(i));
+	}
 }
 
-void Juego::mostrarTablero() {
-	tablero[1].mostrarTablero();
+void Juego::mostrarTablero(int posicion) {
+	tablero[posicion].mostrarTablero();
 }
 
 Juego::~Juego() {

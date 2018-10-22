@@ -16,11 +16,15 @@ class Archivo {
 
 private:
 	ifstream archivo;
-	string direccion;
-	string queLeo;
+	string direccion,queLeo;
+	string* nombresTableros;
+	int* filasTableros;
+	int* columnasTableros;
+	bool existeArray = false;
+
 	unsigned int totalTableros;
 
-
+	void leerDatosDelArchivo();
 	void leerTableros();
 	void leerPortales();
 	void leerParcelas();
@@ -28,9 +32,15 @@ private:
 public:
 	Archivo(string);
 
-	void leerDatosDelArchivo();
-
 	unsigned int cantidadDeTableros();
+
+	string nombreDelTablero(int);
+
+	unsigned int filasDelTablero(int);
+
+	unsigned int columnasDelTablero(int);
+
+	~Archivo();
 };
 
 #endif /* SRC_ARCHIVO_H_ */

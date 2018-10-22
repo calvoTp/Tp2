@@ -15,10 +15,7 @@ int main() {
 
 	Juego juegoDeLaVida("datos/archivo");
 
-	Tablero tablero(5,5);
-
-	juegoDeLaVida.mostrarTablero();
-
+	juegoDeLaVida.mostrarTablero(0);
 
 	return 0;
 }

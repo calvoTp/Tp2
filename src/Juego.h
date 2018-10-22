@@ -18,6 +18,7 @@ class Juego {
 
 private:
 	Tablero* tablero;
+	unsigned int cantidadDeTableros;
 	unsigned int celulasVivas;
 	unsigned int celulasMuertasUltimoTurno, celulasNacidasUltimoTurno;
 	unsigned int totalCelulasMuertas, totalCelulasNacidas;
@@ -28,7 +29,7 @@ private:
 public:
 	Juego(string);
 
-	void mostrarTablero();
+	void mostrarTablero(int);
 
 	~Juego();
 
