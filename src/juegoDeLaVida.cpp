@@ -18,6 +18,8 @@ using namespace std;
 int main() {
 
 
+
+  //que onda
   Juego juegoDeLaVida;
   char tableroActualizado[FILAS_DEL_TABLERO][COLUMNAS_DEL_TABLERO];
   char decisionAvanzarTurno;
