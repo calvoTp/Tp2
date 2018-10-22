@@ -8,30 +8,17 @@
 using namespace std;
 
 
+#include <iostream>
+#include "Juego.h"
+#include "tablero.h"
+#include "Archivo.h"
+using namespace std;
+
 int main() {
 
-  Juego juegoDeLaVida;
-  char tableroActualizado[FILAS_DEL_TABLERO][COLUMNAS_DEL_TABLERO];
-  char decisionAvanzarTurno;
+	Juego juegoDeLaVida("datos/archivo");
 
+	juegoDeLaVida.mostrarTablero(0);
 
-  do {
-    decisionAvanzarTurno = CONTINUAR;
-    inicializarJuego(&juegoDeLaVida);
-    mostrarJuego(juegoDeLaVida);
-    consultarAvanceDeTurno(&decisionAvanzarTurno);
-    actualizarEstadoDeJuego(&juegoDeLaVida.estado, decisionAvanzarTurno);
-
-    while (juegoDeLaVida.estado == EN_EJECUCION) {
-      actualizarJuego(&juegoDeLaVida, tableroActualizado);
-      mostrarJuego(juegoDeLaVida);
-      consultarAvanceDeTurno(&decisionAvanzarTurno);
-      actualizarEstadoDeJuego(&juegoDeLaVida.estado, decisionAvanzarTurno);
-    }
-  } while(juegoDeLaVida.estado == REINICIO);
-
-
-  cout << endl << "Gracias por haber jugado! :-)";
-
-  return 0;
+	return 0;
 }
