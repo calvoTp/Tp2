@@ -5,7 +5,7 @@
 *      Author: marcos
 */
 
-#include "coordenada.hpp"
+#include "Imagen.h"
 using namespace std;
 
 

@@ -9,7 +9,8 @@
 #define COORDENADA_HPP_
 
 #include <iostream>
-#include "juego.hpp"
+
+#include "Constantes.hpp"
 
 struct Coordenada {
   int fila;
