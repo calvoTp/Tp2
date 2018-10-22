@@ -9,7 +9,7 @@ using namespace std;
 
 int main(){
 RGBApixel color;
-    color.Red=100;
+    color.Red=200;
     color.Green=0;
     color.Blue=0;
     int numeroDeFilas=9;
