@@ -10,13 +10,19 @@
 
 #include <iostream>
 #include "juego.hpp"
+#include "Parcela.h"
+#include "Archivo.h"
+#include "EasyBMP.h"
+#include "EasyBMP_BMP.h"
+#include "EasyBMP_DataStructures.h"
+#include "EasyBMP_VariousBMPutilities.h"
 using namespace std;
 
 
 class Tablero {
 
 private:
-	char** tablero;
+	Parcela** tablero;
 	string nombre;
 	int filas, columnas;
 
@@ -26,7 +32,9 @@ public:
 
 	//void actualizarTablero(int, int);
 
-	void inicializarTablero(string, int, int);
+	void inicializarTablero(string, int, int, string);
+
+	void imagenBMP();
 
 	void mostrarTablero();
 

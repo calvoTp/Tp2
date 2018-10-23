@@ -17,10 +17,17 @@ class Archivo {
 private:
 	ifstream archivo;
 	string direccion,queLeo;
+
 	string* nombresTableros;
 	int* filasTableros;
 	int* columnasTableros;
-	bool existeArray = false;
+
+	int* rojo;
+	int* verde;
+	int* azul;
+
+	float* natalidadesParcelas;
+	float* mortalidadesParcelas;
 
 	unsigned int totalTableros;
 
@@ -31,6 +38,17 @@ private:
 
 public:
 	Archivo(string);
+
+	void obtenerTableros();
+	void obtenerParcelas(string, int);
+
+	int rojoParcela(int);
+	int verdeParcela(int);
+	int azulParcela(int);
+
+	float natalidadParcela(int);
+	float mortalidadParcela(int);
+
 
 	unsigned int cantidadDeTableros();
 

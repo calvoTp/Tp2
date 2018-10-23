@@ -15,7 +15,9 @@ int main() {
 
 	Juego juegoDeLaVida("datos/archivo");
 
-	juegoDeLaVida.mostrarTablero(0);
+	juegoDeLaVida.imagenBMP(1);
+
+
 
 	/*COMENTARIOS:
 	 *

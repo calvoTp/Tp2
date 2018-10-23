@@ -29,6 +29,8 @@ private:
 public:
 	Juego(string);
 
+	void imagenBMP(int);
+
 	void mostrarTablero(int);
 
 	~Juego();

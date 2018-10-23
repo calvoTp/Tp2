@@ -10,6 +10,7 @@
 Juego::Juego(string direccionDelArchivo) {
 
 	Archivo archivo(direccionDelArchivo);
+	archivo.obtenerTableros();
 
 	cantidadDeTableros = archivo.cantidadDeTableros();
 	estado = EN_EJECUCION;
@@ -26,8 +27,12 @@ Juego::Juego(string direccionDelArchivo) {
 	tablero = new Tablero[cantidadDeTableros];
 
 	for (unsigned int i = 0; i < cantidadDeTableros; i++) {
-		tablero[i].inicializarTablero(archivo.nombreDelTablero(i), archivo.filasDelTablero(i), archivo.columnasDelTablero(i));
+		tablero[i].inicializarTablero(archivo.nombreDelTablero(i), archivo.filasDelTablero(i), archivo.columnasDelTablero(i), direccionDelArchivo);
 	}
+}
+
+void Juego::imagenBMP(int posicion) {
+	tablero[posicion].imagenBMP();
 }
 
 void Juego::mostrarTablero(int posicion) {

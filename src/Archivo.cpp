@@ -9,44 +9,45 @@
 
 Archivo::Archivo(string direccionDelArchivo) {
 	direccion = direccionDelArchivo;
+	totalTableros = 0;
+	mortalidadesParcelas = NULL;
+	natalidadesParcelas = NULL;
+	columnasTableros = NULL;
+	filasTableros = NULL;
+	nombresTableros = NULL;
+	rojo = NULL;
+	verde = NULL;
+	azul = NULL;
+}
 
+
+void Archivo::obtenerTableros() {
+	int i = 0;
 	archivo.open(direccion.c_str());
-	leerDatosDelArchivo();
+	archivo >> queLeo;
+
+	while (queLeo == "Tablero" && !archivo.eof()) {
+		totalTableros++;
+		getline(archivo, queLeo);
+		archivo >> queLeo;
+	}
+
 	archivo.clear(); //sin esto falla todo, tiene que ver con el eof
 	archivo.seekg(0, ios::beg); //vuelvo al principio del archivo
 
 	nombresTableros = new string[totalTableros];
 	filasTableros = new int[totalTableros];
 	columnasTableros = new int[totalTableros];
-
-	existeArray = true;
-	leerDatosDelArchivo();
-
-	archivo.close();
-}
-
-void Archivo::leerTableros() {
-	string nombreTablero;
-	int filas;
-	int columnas;
-	int i = 0;
-	totalTableros = 0;
+	archivo >> queLeo;
 
 	while (queLeo == "Tablero" && !archivo.eof()) {
-
-		totalTableros++;
-		archivo >> nombreTablero;
-		archivo >> filas;
-		archivo >> columnas;
+		archivo >> nombresTableros[i];
+		archivo >> filasTableros[i];
+		archivo >> columnasTableros[i];
 		archivo >> queLeo;
-
-		if (existeArray) {
-			nombresTableros[i] = nombreTablero;
-			filasTableros[i] = filas;
-			columnasTableros[i] = columnas;
-			i++;
-		}
+		i++;
 	}
+	archivo.close();
 }
 
 void Archivo::leerPortales() {
@@ -86,10 +87,72 @@ void Archivo::leerParcelas() {
 
 void Archivo::leerDatosDelArchivo() {
 		archivo >> queLeo;
-		leerTableros();
+		obtenerTableros();
 		leerPortales();
 		leerParcelas();
 }
+
+
+void Archivo::obtenerParcelas(string nombreDelTablero, int totalParcelas) {
+
+	string tableroPerteneceParcela;
+	int xCoordenadaParcela;
+	int yCoordenadaParcela;
+	int i = 0;
+
+	archivo.open(direccion.c_str());
+
+	natalidadesParcelas = new float[totalParcelas];
+	mortalidadesParcelas = new float[totalParcelas];
+	rojo = new int[totalParcelas];
+	verde = new int[totalParcelas];
+	azul = new int[totalParcelas];
+
+	archivo >> queLeo;
+
+	while (!archivo.eof()) {
+		if (queLeo == "Parcela") {
+			archivo >> tableroPerteneceParcela;
+			archivo >> xCoordenadaParcela;
+			archivo >> yCoordenadaParcela;
+			if (tableroPerteneceParcela == nombreDelTablero) {
+				archivo >> rojo[i];
+				archivo >> verde[i];
+				archivo >> azul[i];
+				archivo >> natalidadesParcelas[i];
+				archivo >> mortalidadesParcelas[i];
+				i++;
+			}
+		}
+		archivo >> queLeo;
+	}
+
+	archivo.close();
+}
+
+
+
+float Archivo::natalidadParcela(int posicion) {
+	return natalidadesParcelas[posicion];
+}
+
+float Archivo::mortalidadParcela(int posicion) {
+	return mortalidadesParcelas[posicion];
+}
+
+int Archivo::rojoParcela(int posicion) {
+	return rojo[posicion];
+}
+
+int Archivo::verdeParcela(int posicion) {
+	return verde[posicion];
+}
+
+int Archivo::azulParcela(int posicion) {
+	return azul[posicion];
+}
+
+
 
 unsigned int Archivo::cantidadDeTableros(){
 	return totalTableros;
@@ -111,4 +174,9 @@ Archivo::~Archivo() {
 	delete[]nombresTableros;
 	delete[]filasTableros;
 	delete[]columnasTableros;
+	delete[]natalidadesParcelas;
+	delete[]mortalidadesParcelas;
+	delete[]rojo;
+	delete[]verde;
+	delete[]azul;
 }
