@@ -9,7 +9,7 @@
 #define JUEGO_HPP_
 
 
-#define FILAS_DEL_TABLERO 20
+#define FILAS_DEL_TABLERO 80
 #define COLUMNAS_DEL_TABLERO 80
 
 #define REINICIO 2
@@ -28,17 +28,8 @@
 #define MAXIMO_CELULAS_PARA_PERMANECER_VIVA 3
 #define CELULAS_PARA_NACER 3
 
-typedef char Tablero[FILAS_DEL_TABLERO][COLUMNAS_DEL_TABLERO];
-
-struct Juego {
-  char tablero[FILAS_DEL_TABLERO][COLUMNAS_DEL_TABLERO];
-  unsigned int celulasVivas;
-  unsigned int celulasMuertasUltimoTurno, celulasNacidasUltimoTurno;
-  unsigned int totalCelulasMuertas, totalCelulasNacidas;
-  float promedioCelulasNacidas, promedioCelulasMuertas;
-  unsigned int turnosJugados, turnosCongelados;
-  short int estado;
-};
+/* Codigos de mensaje*/
+#define DESICIONINVALIDA -2;
 
 
 #endif /* JUEGO_HPP_ */

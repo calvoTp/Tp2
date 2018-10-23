@@ -1,0 +1,50 @@
+/*
+ * Juego.cpp
+ *
+ *  Created on: Oct 21, 2018
+ *      Author: marcos
+ */
+
+#include "Juego.h"
+
+Juego::Juego(string direccionDelArchivo) {
+
+	Archivo archivo(direccionDelArchivo);
+
+	//cantidadDeTableros = archivo.cantidadDeTableros();
+	cantidadDeTableros = 1;
+	estado = EN_EJECUCION;
+	celulasVivas = 0;
+	celulasNacidasUltimoTurno = 0;
+	celulasMuertasUltimoTurno = 0;
+	totalCelulasNacidas = 0;
+	totalCelulasMuertas = 0;
+	promedioCelulasNacidas = 0;
+	promedioCelulasMuertas = 0;
+	turnosJugados = 0;
+	turnosCongelados = 0;
+
+	tablero = new Tablero[cantidadDeTableros];
+
+	for (unsigned int i = 0; i < cantidadDeTableros; i++) {
+		//tablero[i].inicializarTablero(archivo.nombreDelTablero(i), archivo.filasDelTablero(i), archivo.columnasDelTablero(i));
+		tablero[i].inicializarTablero("tablero", 20, 20);
+	}
+}
+
+void Juego::mostrarTablero(int posicion) {
+	tablero[posicion].mostrarTablero();
+}
+
+void Juego::setEstado(short int estado){
+	this->estado = estado;
+}
+
+short int Juego::getEstado(){
+	return estado;
+}
+
+Juego::~Juego() {
+	delete[]tablero;
+}
+
