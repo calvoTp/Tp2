@@ -12,6 +12,10 @@
 #include "juego.hpp"
 #include "Archivo.h"
 #include "tablero.h"
+#include "coordenada.h"
+#include "Celula.h"
+#include "Jugador.h"
+
 using namespace std;
 
 class Juego {
@@ -26,12 +30,21 @@ private:
 	unsigned int turnosJugados, turnosCongelados;
 	short int estado;
 
+	void consultarActivacionDeOtraCelula(char&);
+
 public:
 	Juego(string);
+
+	void agregarCelulasVivas(int);
+
 
 	void imagenBMP(int);
 
 	void mostrarTablero(int);
+
+	void setEstado(short int);
+
+	short int getEstado();
 
 	~Juego();
 

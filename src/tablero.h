@@ -12,6 +12,7 @@
 #include "juego.hpp"
 #include "Parcela.h"
 #include "Archivo.h"
+#include "coordenada.h"
 #include "EasyBMP.h"
 #include "EasyBMP_BMP.h"
 #include "EasyBMP_DataStructures.h"
@@ -33,6 +34,8 @@ public:
 	//void actualizarTablero(int, int);
 
 	void inicializarTablero(string, int, int, string);
+
+	void naceCelula(Coordenada);
 
 	void imagenBMP();
 

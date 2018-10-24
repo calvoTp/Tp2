@@ -8,11 +8,10 @@
 #include "Parcela.h"
 
 Parcela::Parcela() {
-	// TODO Auto-generated constructor stub
 	iniciada=false;
 	tasaDeNatalidad=0;
 	tasaDeMortalidad=0;
-	estado = CELULA_MUERTA;
+
 }
 
 void Parcela::inicializarParcela(float natalidad, float mortalidad, int rojo, int verde, int azul) {
@@ -30,11 +29,16 @@ float Parcela::obtenerTasaNatalidad() {
 }
 
 char Parcela::mostrarEstadoParcela() {
-	return estado;
+	return celula.obtenerEstado();
 }
 
 RGBApixel Parcela::obtenerColor() {
 	return color;
+}
+
+
+void Parcela::naceCelula() {
+	celula.nacer();
 }
 
 Parcela::~Parcela() {

@@ -10,12 +10,13 @@
 #include "EasyBMP.h"
 #include "iostream"
 #include "juego.hpp"
+#include "Celula.h"
 using namespace std;
 
 class Parcela {
 
 private:
-	char estado;
+	Celula celula;
 	float tasaDeNatalidad;
 	float tasaDeMortalidad;
 	bool iniciada;
@@ -31,6 +32,9 @@ public:
 	char mostrarEstadoParcela();
 	//void setear(RGBApixel colorAsignar,int ,int );
 	RGBApixel obtenerColor();
+
+	void naceCelula();
+
 	virtual ~Parcela();
 };
 

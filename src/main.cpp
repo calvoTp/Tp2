@@ -7,37 +7,50 @@
 
 #include <iostream>
 #include "Juego.h"
-#include "tablero.h"
-#include "Archivo.h"
+#include "Jugador.h"
+#include "Errores.h"
 using namespace std;
 
 int main() {
 
 	Juego juegoDeLaVida("datos/archivo");
+	/*ESTA CLASE CAPTURA LOS DIFERENTES ERRORES */
+	Errores error;
+	Jugador jugador = Jugador();
 
-	juegoDeLaVida.imagenBMP(1);
+	juegoDeLaVida.agregarCelulasVivas(1);
+
+	juegoDeLaVida.mostrarTablero(1);
 
 
 
-	/*COMENTARIOS:
-	 *
-	 * El TDA Juego es la clave. Ahi van a ir la mayoria de las funciones que tengo implementadas en el TP1 pero pasandolas a metodos, llamando cuando haga falta a otros
-	 * TDA como parcela o celula. Habria que ya empezar a hacer que funcione el juego, aunque sea en un solo tablero, despues hacer varios no deberia ser dificil
-	 * porque seria trabajar con un vector de tableros nomas, que ya esta implementado y funciona.
-	 *
-	 * EJEMPLO:
-	 *
-	 *declaran el objeto juegoDeLaVida poniendo Juego juegoDeLaVida( "direccion del archivo de donde levantara los datos" );
-	 *si en el archivo 	tenian declarados 3 tableros, cada uno con su correspondiente nombre y dimensiones (ver en la carpeta "datos" un ejemplo del archivo)
-	 *pueden ver el tablero deseado escribiendo juegoDeLaVida.mostrarTablero( numero del tablero, del 0 a cantidad-1).
-	 *Se imprimira el tablero y su nombre debajo, como para saber que anda todo bien
-	 *
-	 *Dentro de la clase Juego, para llamar al tablero deseado escriben tablero[ numero del vector ].mostrarTablero();
-	 *Traten de no definir a mano un tablero, sino de escribirlo en el archivo y el programa por si mismo lo cargara.
-	 *En cualquier caso, si son unos rompehuevos y quieren definirlo a mano porque les da paja en el archivo, hacen:
-	 *
-	 *tablero.inicializarTablero( nombreDelTablero(es un dato string), filasDelTablero(nro), columnasDelTablero (nro));
-	 */
+//	do{
+	//	short int desicionUsuario;
+		/* Este bucle repite el juego hasta que el usuario desee salir */
+		//while(juegoDeLaVida.getEstado() == EN_EJECUCION){
+
+//			juegoDeLaVida.mostrarTablero(0);
+	//		desicionUsuario = jugador.preguntarDesicion();
+
+			/*Comprueba que no haya error en lo que eligio el usuario */
+		//	if(error.errorDesicionUsuario(desicionUsuario)){
+			//	while(error.errorDesicionUsuario(desicionUsuario)){
+				//	cout<<"Desicion invalida"<<endl;
+					//desicionUsuario = jugador.preguntarDesicion();
+				//}
+				/*Se setea el estado cuando el usuario introdujo un valor correcto*/
+				//juegoDeLaVida.setEstado(desicionUsuario);
+			//}
+			/* Si no hay error se lo asigna al estado de juego */
+			//else{
+				//juegoDeLaVida.setEstado(desicionUsuario);
+			//}
+
+		//}
+
+
+	//}while(juegoDeLaVida.getEstado() == REINICIO);
+
 
 	return 0;
 }

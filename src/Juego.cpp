@@ -31,12 +31,45 @@ Juego::Juego(string direccionDelArchivo) {
 	}
 }
 
+
+void Juego::consultarActivacionDeOtraCelula(char &decisionAgregarCelula) {
+   Jugador jugador;
+
+	cout << "Desea agregar otra celula viva?(s/n): ";
+    do {
+      if (decisionAgregarCelula != CONTINUAR && decisionAgregarCelula != FINALIZAR) {
+        cout << "Por favor, ingrese 's' para agregar otra celula o 'n' para inicializar el juego" << endl;
+      }
+      decisionAgregarCelula = jugador.getDecision();
+    } while(decisionAgregarCelula != CONTINUAR && decisionAgregarCelula != FINALIZAR);
+}
+
+void Juego::agregarCelulasVivas(int posicionDelTablero) {
+  char decisionAgregarCelula = CONTINUAR;
+  Coordenada coordenadaCelula;
+  while (decisionAgregarCelula == CONTINUAR) {
+    celulasVivas++;
+    coordenadaCelula.ingresarCoordenada();
+    tablero[posicionDelTablero].naceCelula(coordenadaCelula);
+    consultarActivacionDeOtraCelula(decisionAgregarCelula);
+  }
+  return;
+}
+
 void Juego::imagenBMP(int posicion) {
 	tablero[posicion].imagenBMP();
 }
 
 void Juego::mostrarTablero(int posicion) {
 	tablero[posicion].mostrarTablero();
+}
+
+void Juego::setEstado(short int estado){
+	this->estado = estado;
+}
+
+short int Juego::getEstado(){
+	return estado;
 }
 
 Juego::~Juego() {

@@ -40,6 +40,10 @@ void Tablero::inicializarTablero(string nombre, int filas, int columnas, string 
 	}
 }
 
+void Tablero::naceCelula(Coordenada coordenadaCelula) {
+	  tablero[coordenadaCelula.obtenerFila()][coordenadaCelula.obtenerColumna()].naceCelula();
+}
+
 void Tablero::imagenBMP() {
 	int i, j, x, y;
 	BMP Imagen;
